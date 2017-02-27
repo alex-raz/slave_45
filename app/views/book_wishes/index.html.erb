@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Book Wishes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Book url</th>
+      <th>Applied</th>
+      <th>Performed</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @book_wishes.each do |book_wish| %>
+      <tr>
+        <td><%= book_wish.title %></td>
+        <td><%= book_wish.book_url %></td>
+        <td><%= book_wish.applied %></td>
+        <td><%= book_wish.performed %></td>
+        <td><%= link_to 'Edit', edit_book_wish_path(book_wish) %></td>
+        <td><%= link_to 'Destroy', book_wish, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Book Wish', new_book_wish_path %>
