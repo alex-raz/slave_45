@@ -17,7 +17,7 @@ class BookWishesController < ApplicationController
     @book_wish = BookWish.new(book_wish_params)
 
     if @book_wish.save
-      redirect_to book_wishes_url, notice: 'Book wish was successfully created.'
+      redirect_to book_wishes_url, notice: 'Ура! Теперь мы знаем чего ты хочешь!'
     else
       render :new
     end
