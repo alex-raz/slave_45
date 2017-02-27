@@ -7,4 +7,8 @@ class BookWish < ApplicationRecord
 
     initial_balance - spent_amount
   end
+
+  def in_process?
+    applied || performed
+  end
 end

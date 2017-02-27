@@ -24,16 +24,22 @@ class BookWishesController < ApplicationController
   end
 
   def update
-    if @book_wish.update(book_wish_params)
-      redirect_to book_wishes_url, notice: 'Book wish was successfully updated.'
+    if @book_wish.in_process?
+      redirect_to book_wishes_url, alert: 'Неа, так не пойдет. Мы уже суетимся, а ты хотелку изменяешь..'
+    elsif @book_wish.update(book_wish_params)
+      redirect_to book_wishes_url, notice: 'Правда же здорово что мы не успели еще ничего сделать?'
     else
       render :edit
     end
   end
 
   def destroy
-    @book_wish.destroy
-    redirect_to book_wishes_url, notice: 'Book wish was successfully destroyed.'
+    if @book_wish.in_process?
+      redirect_to book_wishes_url, alert: 'Неа, так не пойдет. Мы уже суетимся, а ты хотелку отменяешь..'
+    else
+      @book_wish.destroy
+      redirect_to book_wishes_url, notice: 'Не очень-то и хотелось.. :('
+    end
   end
 
   private

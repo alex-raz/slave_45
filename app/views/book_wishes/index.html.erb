@@ -9,7 +9,7 @@
       <th>Цена</th>
       <th>Принято в обработку?</th>
       <th>Готово?</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -21,8 +21,13 @@
         <td><%= book_wish.price_rub %></td>
         <td><%= book_wish.applied %></td>
         <td><%= book_wish.performed %></td>
-        <td><%= link_to 'Изменить', edit_book_wish_path(book_wish) %></td>
-        <td><%= link_to 'Удалить', book_wish, method: :delete, data: { confirm: 'Ты хорошо подумал?' } %></td>
+        <% if book_wish.in_process? %>
+          <td></td>
+          <td></td>
+        <% else %>
+          <td><%= link_to 'Изменить', edit_book_wish_path(book_wish) %></td>
+          <td><%= link_to 'Удалить', book_wish, method: :delete, data: { confirm: 'Ты хорошо подумал?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
