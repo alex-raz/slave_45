@@ -25,6 +25,15 @@ gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 
+# Devise is a flexible authentication solution for Rails based on Warden.
+gem 'devise'
+
+# Devise views with Bootstrap 3 and devise-i18n-views support
+gem 'devise-bootstrap-views'
+
+# Forms made easy for Rails
+gem 'simple_form'
+
 group :development do
   gem 'listen', '~> 3.0.5'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
