@@ -4,8 +4,7 @@
 <table class='table'>
   <thead>
     <tr>
-      <th>Название</th>
-      <th>URL</th>
+      <th>Книга</th>
       <th>Цена</th>
       <th>Принято в обработку?</th>
       <th>Готово?</th>
@@ -16,8 +15,7 @@
   <tbody>
     <% @book_wishes.each do |book_wish| %>
       <tr>
-        <td><%= book_wish.title %></td>
-        <td><%= book_wish.book_url %></td>
+        <td><%= link_to book_wish.title, book_wish.book_url %></td>
         <td><%= book_wish.price_rub %></td>
         <td><%= book_wish.applied %></td>
         <td><%= book_wish.performed %></td>
