@@ -19,10 +19,10 @@ ActiveRecord::Schema.define(version: 20170227082845) do
     t.string   "title"
     t.string   "book_url"
     t.float    "price_rub"
-    t.boolean  "applied"
-    t.boolean  "performed"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "applied",    default: false
+    t.boolean  "performed",  default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "users", force: :cascade do |t|
