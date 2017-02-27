@@ -1,8 +1,8 @@
 class BookWishesController < ApplicationController
   before_action :set_book_wish, only: [:edit, :update, :destroy]
+  before_action :set_balance, only: [:edit, :new, :index, :create, :update]
 
   def index
-    @balance = BookWish.balance
     @book_wishes = BookWish.all
   end
 
@@ -45,6 +45,10 @@ class BookWishesController < ApplicationController
   private
     def set_book_wish
       @book_wish = BookWish.find(params[:id])
+    end
+
+    def set_balance
+      @balance = BookWish.balance
     end
 
     # Only allow a trusted parameter "white list" through.
