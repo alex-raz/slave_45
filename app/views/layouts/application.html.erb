@@ -9,7 +9,17 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation"><%= link_to 'Твои книжные хотелки', book_wishes_path %></li>
+            <li role="presentation"><%= link_to 'Выйти', destroy_user_session_path, method: :delete %></li>
+          </ul>
+        </nav>
+        <h3 class="text-muted"><%= link_to 'Заглавная страница', root_path %></h3>
+      </div>
+
       <div class="alert-flashed">
         <%- flash.each do |name, msg| %>
           <%- errors_keys = ['error', 'alert'] %>
@@ -21,5 +31,8 @@
           <% end %>
         <% end %>
       </div>
+
+      <%= yield %>
+    </div>
   </body>
 </html>
