@@ -2,6 +2,7 @@ class BookWishesController < ApplicationController
   before_action :set_book_wish, only: [:edit, :update, :destroy]
 
   def index
+    @balance = BookWish.balance
     @book_wishes = BookWish.all
   end
 
