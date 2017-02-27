@@ -10,5 +10,16 @@
 
   <body>
     <%= yield %>
+      <div class="alert-flashed">
+        <%- flash.each do |name, msg| %>
+          <%- errors_keys = ['error', 'alert'] %>
+          <%= content_tag :div, class: "alert alert-#{ errors_keys.include?(name) ? "danger" : "success" } alert-dismissable alert-flash", role: "alert"  do %>
+            <button class="close" type="button" data-dismiss="alert">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <%= msg %>
+          <% end %>
+        <% end %>
+      </div>
   </body>
 </html>
