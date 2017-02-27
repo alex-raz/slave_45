@@ -1,5 +1,5 @@
-<h1>Editing Book Wish</h1>
+<h1>Подправить книжную хотелку</h1>
 
-<%= render 'form', book_wish: @book_wish %>
-
-<%= link_to 'Back', book_wishes_path %>
+<%= render 'form', book_wish: @book_wish, button_text: 'Я такой непостоянный..' %>
+<br>
+<%= link_to 'Назад к списку хотелок', book_wishes_path %>
